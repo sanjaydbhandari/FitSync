@@ -1,16 +1,10 @@
 import { config } from "dotenv";
 config();
 import dbConnection from "./config/dbConnection.js";
-import express from "express";
-
-const app = express();
-
-app.get("/",(req,res)=>{
-    res.send("Hello World");
-})
+import app from "./app.js";
 
 
-app.listen(process.env.PORT,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     dbConnection();
     console.log(`Server is running on port ${process.env.PORT}`);
 });

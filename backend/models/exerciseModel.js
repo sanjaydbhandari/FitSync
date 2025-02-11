@@ -12,30 +12,32 @@ const ExerciseSchema = new mongoose.Schema({
         type: String, 
         required: true,
         minLength: 3,
-        maxLength: 50,
+        maxLength: 100,
         trim : true
     },
     equipment: { 
         type: String,
         required: true,
         minLength: 3,
-        maxLength: 50,  
+        maxLength: 100,  
         trim : true
     },
     instructions: { 
         type: String,
         required: true,
         minLength: 3,
-        maxLength: 50,  
+        maxLength: 1000,  
         trim : true
      },
     video_url: { 
         type: String,
         required: true,
         minLength: 3,
-        maxLength: 50,  
         trim : true
      },
+},{
+    timestamps: true
 });
 
-module.exports = mongoose.model("Exercise", ExerciseSchema);
+const Exercise = mongoose.model("Exercise", ExerciseSchema);
+export default Exercise;
